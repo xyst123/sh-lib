@@ -1,4 +1,4 @@
-function throttle1(fn, delay = 200) {
+function throttle(fn, delay = 200) {
   let before = Date.now();
   return function (...args) {
     const now = Date.now();
