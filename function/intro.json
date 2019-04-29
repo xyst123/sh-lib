@@ -1,7 +1,12 @@
 {
-  "Uploader": {
-    "desc": "视频上传组件",
-    "keyWords": ["文件", "视频", "上传"],
+  "throttle": {
+    "desc": "节流函数，降低函数触发频率",
+    "keyWords": ["节流"],
+    "author": ""
+  },
+  "debounce": {
+    "desc": "防抖函数，防止函数短时间内连续触发",
+    "keyWords": ["防抖"],
     "author": ""
   }
 }
