@@ -1,7 +1,30 @@
 {
+  "View": {
+    "desc": "页面模板",
+    "keyWords": ["页面", "模板"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
+  },
+  "Component": {
+    "desc": "组件模板",
+    "keyWords": ["组件", "模板"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
+  },
   "Uploader": {
     "desc": "视频上传组件",
     "keyWords": ["文件", "视频", "上传"],
-    "author": ""
+    "demo": "https://mp.sohu.com/mpfe/v3/main/news/addvideo",
+    "demoDesc": "上传视频按钮",
+    "author": "xiayang"
+  },
+  "StretchText": {
+    "desc": "可展开/收起的文本框",
+    "keyWords": ["文本", "展开", "收起", "超出", "省略号"],
+    "demo": "https://mp.sohu.com/h5/v2/content",
+    "demoDesc": "点击短文tab展示的列表",
+    "author": "xiayang"
   }
 }

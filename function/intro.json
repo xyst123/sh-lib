@@ -1,12 +1,37 @@
 {
   "throttle": {
-    "desc": "节流函数，降低函数触发频率",
+    "desc": "节流，降低函数触发频率",
     "keyWords": ["节流"],
-    "author": ""
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
   },
   "debounce": {
-    "desc": "防抖函数，防止函数短时间内连续触发",
+    "desc": "防抖，防止函数短时间内连续触发",
     "keyWords": ["防抖"],
-    "author": ""
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
+  },
+  "trim": {
+    "desc": "去除字符串左右两边空字符",
+    "keyWords": ["字符串", "去除", "删除", "空字符", "空格"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
+  },
+  "formatDate": {
+    "desc": "格式化Date对象",
+    "keyWords": ["日期", "格式化", "字符串"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
+  },
+  "iterateObject": {
+    "desc": "遍历对象，防止遍历到原型中的属性",
+    "keyWords": ["遍历", "循环", "对象", "原型"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
   }
 }

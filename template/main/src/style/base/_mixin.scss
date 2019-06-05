@@ -1,0 +1,101 @@
+/*精确高度*/
+@mixin strictHeight($size) {
+  height: $size;
+  line-height: $size;
+}
+
+/*底部1px线条*/
+@mixin singlePxAfter($color:$color-grey-light) {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  content: "";
+  display: block;
+  height: 1px;
+  width: 200%;
+  background-color: $color;
+  transform: scale(0.5);
+  transform-origin: left;
+}
+
+@mixin displayFlex {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: flex;
+}
+
+@mixin flex($rule) {
+  -webkit-box-flex: $rule;
+  -webkit-flex: $rule;
+  flex: $rule;
+}
+
+/*顶部1px线条*/
+@mixin singlePxBefore($color:$color-grey-light) {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  height: 1px;
+  width: 200%;
+  background-color: $color;
+  transform: scale(0.5);
+  transform-origin: left;
+}
+
+/*左部1px线条*/
+@mixin singlePxVerticalBefore {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 1px;
+  height: 200%;
+  background-color: $color-grey-light;
+  transform: scale(0.5);
+  transform-origin: top left;
+}
+
+// 四边1px
+@mixin singlePx($color:$color-grey) {
+  content: '';
+  width: 200%;
+  height: 200%;
+  border: 1px solid $color;
+  transform: scale(0.5);
+  transform-origin: 0 0;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+}
+
+// 圆角四边1px
+@mixin singlePxRadius($color:$color-grey, $radius:8px) {
+  @include singlePx($color);
+  @include border-radius($radius);
+  z-index: -1;
+}
+
+/*毛玻璃面板*/
+@mixin filter($opacity:0.95, $blur:25px) {
+  -webkit-filter: blur($blur) opacity($opacity);
+  -moz-filter: blur($blur) opacity($opacity);
+  -ms-filter: blur($blur) opacity($opacity);
+  -o-filter: blur($blur) opacity($opacity);
+  filter: blur($blur) opacity($opacity);
+}
+
+//ios标准字体
+%iOSFont {
+  font-family: "PingFangSC-Regular";
+}
+
+// 居中
+%center {
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%)
+}

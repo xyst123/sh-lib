@@ -1,7 +1,8 @@
 <template>
   <label>
-    <slot/>
-    <input type="file" :name="name" :accept="accept" @change="submit" @click="active">
+    <slot />
+    <input type="file"
+:name="name" :accept="accept" @change="submit" @click="active">
   </label>
 </template>
 
@@ -9,90 +10,94 @@
 let xhr;
 export default {
   props: {
+    // 请求地址
     url: {
       type: String,
-      default: ""
+      default: '',
     },
+    // input的name属性
     name: {
       type: String,
-      default: "video"
+      default: 'video',
     },
+    // POST或GET
     method: {
       type: String,
-      default: "POST"
+      default: 'POST',
     },
-    accept: {
-      type: String,
-      default: "*/*"
-    },
+    // 文件大小限制
     size: {
       type: Number,
-      default: 500 * 1024 * 1024
+      default: 500 * 1024 * 1024,
     },
+    // 接收的文件类型
     types: {
       type: Array,
-      default: []
+      default: () => [],
     },
+    // 超时毫秒数
     timeout: {
       type: Number,
-      default: 20000
-    }
+      default: 20000,
+    },
   },
   data() {
     return {};
   },
   methods: {
     active() {
-      this.$emit("active");
+      this.$emit('active');
     },
     abort() {
       if (xhr && xhr.readyState > 0) {
         xhr.abort();
       }
     },
-    submit(e) {
-      const file = e.target.files[0];
+    submit(submitEvent) {
+      const file = submitEvent.target.files[0];
 
       // 检查文件大小
       if (file.size > this.size) {
-        this.$emit("uploadFail", {
-          type: "size",
-          error: file
+        this.$emit('uploadFail', {
+          type: 'size',
+          error: file,
         });
         return;
       }
 
       // 检查文件类型
       if (this.types.length > 0) {
-        const reg = new RegExp(`\\.(${this.types.join("|")})$`, "i");
+        const reg = new RegExp(`\\.(${this.types.join('|')})$`, 'i');
         if (!reg.test(file.name)) {
-          this.$emit("uploadFail", {
-            type: "type",
-            error: file
+          this.$emit('uploadFail', {
+            type: 'type',
+            error: file,
           });
           return;
         }
       }
 
+      /* eslint-disable */
       xhr = window.ActiveXObject
         ? new ActiveXObject("Microsoft.XMLHTTP")
         : new XMLHttpRequest();
-      console.log("xhr", xhr);
+      /* eslint-enable */
+
       // xhr.timeout = this.timeout;
       xhr.open(this.method.toUpperCase(), this.url, true);
 
       // 上传错误
-      xhr.onerror = error => {
-        this.$emit("uploadFail", {
-          type: "beforeSend",
-          error
+      xhr.onerror = (error) => {
+        this.$emit('uploadFail', {
+          type: 'beforeSend',
+          error,
         });
       };
 
       // 上传进度
-      const updateProgress = e => {
-        if (e.lengthComputable) {
-          this.$emit("uploading", e);
+      const updateProgress = (progressEvent) => {
+        if (progressEvent.lengthComputable) {
+          this.$emit('uploading', progressEvent);
         }
       };
       // xhr.onprogress = updateProgress;
@@ -102,11 +107,11 @@ export default {
       xhr.onreadystatechange = () => {
         if (xhr.readyState === 4) {
           if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
-            this.$emit("uploadSuccess", { file, xhr });
+            this.$emit('uploadSuccess', { file, xhr });
           } else {
-            this.$emit("uploadFail", {
-              type: "afterSend",
-              error: xhr
+            this.$emit('uploadFail', {
+              type: 'afterSend',
+              error: xhr,
             });
           }
         }
@@ -116,10 +121,10 @@ export default {
       data.append(this.name, file);
 
       // 开始上传
-      this.$emit("uploadStart", file);
+      this.$emit('uploadStart', file);
       xhr.send(data);
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -137,4 +142,3 @@ label {
   }
 }
 </style>
-

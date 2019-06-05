@@ -1,0 +1,17 @@
+{
+  "__default__": {
+    "viewDir": "./src/views",
+    "componentDir": "./src/components",
+    "routerPath": "./src/router/index.js"
+  },
+  "mp-new": {
+    "viewDir": "./app/components",
+    "componentDir": "./app/common",
+    "routerPath": "./app/routes/index.js"
+  },
+  "oprPlatform": {
+    "viewDir": "./src/components",
+    "componentDir": "./src/components/common",
+    "routerPath": "./src/router.js"
+  }
+}
