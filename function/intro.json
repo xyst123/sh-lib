@@ -33,5 +33,12 @@
     "demo": "",
     "demoDesc": "",
     "author": "xiayang"
+  },
+  "eventBus": {
+    "desc": "eventBus插件，组件卸载前会移除监听事件",
+    "keyWords": ["eventBus", "vue", "插件", "数据"],
+    "demo": "",
+    "demoDesc": "",
+    "author": "xiayang"
   }
 }
